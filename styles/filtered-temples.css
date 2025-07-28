@@ -88,6 +88,9 @@ main {
 .navigation-links li:last-child {
     border-bottom: none;
 }
+h2{
+    text-align: center;
+}
 
 .navigation-links li a {
     text-decoration: none;
