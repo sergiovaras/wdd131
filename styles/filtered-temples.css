@@ -1,10 +1,13 @@
-/* Estilos Generales del Cuerpo y Diseño */
+
 body {
     font-family: "Roboto", sans-serif;
     background-color: bisque;
     color: black;
     height: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header,
@@ -14,65 +17,66 @@ footer {
     padding: 1rem;
 }
 
-/* Centrado del Contenido Principal */
+
 main {
-    max-width: 960px; /* Ajustar según sea necesario para 3 columnas */
+    flex-grow: 1;
+    max-width: 960px; 
     margin: 0 auto;
     padding: 1rem;
 }
 
-/* Navegación del Encabezado (Mobile-First) */
+
 .title-menu nav {
     margin: 0;
     padding: 2px;
     display: flex;
-    /* En móvil, queremos el h1 y el botón en una línea, y el ul debajo */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-    justify-content: space-between; /* Empuja el h1 a la izquierda, el botón a la derecha */
-    align-items: center; /* Alinea verticalmente el h1 y el botón */
-    position: relative; /* Necesario para el posicionamiento absoluto de los enlaces de navegación */
+  
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative; 
 }
 
-.title-menu nav h1.text { /* Apunta específicamente al h1 */
+.title-menu nav h1.text { 
     margin: 0;
     padding: 0;
-    color: white; /* Asegura que el texto sea visible */
-    font-size: 1.5rem; /* Ajustar según sea necesario */
+    color: white; 
+    font-size: 1.5rem; 
 }
 
-/* Botón del Menú de Hamburguesa */
+
 .hamburger-menu {
-    display: block; /* Visible por defecto en móvil */
+    display: block;
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
     z-index: 1000;
-    color: white; /* Para el carácter unicode de la hamburguesa */
-    font-size: 1.8rem; /* Hace el icono más grande */
-    line-height: 1; /* Ajusta la altura de línea para centrar el icono */
-    transition: transform 0.4s ease; /* Transición suave para la rotación de la X */
+    color: white; 
+    font-size: 1.8rem; 
+    line-height: 1; 
+    transition: transform 0.4s ease; 
 }
 
-/* Enlaces de Navegación (Ocultos por defecto en Móvil) */
-.navigation-links { /* Usando .navigation-links según tu HTML */
-    display: none; /* Oculto por defecto en móvil */
-    flex-direction: column; /* Apila los enlaces verticalmente */
-    width: 100%; /* Ocupa todo el ancho cuando está abierto */
+
+.navigation-links { 
+    display: none; 
+    flex-direction: column; 
+    width: 100%; 
     list-style: none;
     padding: 0;
     margin: 0;
-    background-color: #333; /* Fondo para el menú desplegable */
+    background-color: #333;
     position: absolute;
-    top: 100%; /* Posiciona debajo del encabezado de navegación (h1 + botón) */
+    top: 100%; 
     left: 0;
     right: 0;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     z-index: 999;
 }
 
-.navigation-links.active { /* Usando la clase .active según tu JS */
-    display: flex; /* Muestra cuando la clase 'active' es añadida por JS */
+.navigation-links.active {
+    display: flex; 
 }
 
 .navigation-links li {
@@ -97,15 +101,15 @@ main {
     background-color: #555;
 }
 
-/* Cuadrícula de Galería (Mobile-First: 1 Columna) */
-.temples { /* Usando la clase .temples existente para el contenedor de la cuadrícula */
+
+.temples { 
     display: grid;
     gap: 1.5rem;
     padding: 1rem 0;
-    /* Sin grid-template-columns aquí, por defecto es 1 columna */
+    
 }
 
-/* Estilos de Figura e Imagen */
+
 .temples figure {
     margin: 0;
     text-align: center;
@@ -124,51 +128,57 @@ main {
 }
 
 .temples figcaption {
-    font-size: 0.9em;
+    font-size: 1.4em;
     color: #333;
     font-weight: bold;
+    margin: 10px;
+}
+   
+.temples p{
+    font-size: 0.9em;
+    color: #8a2be2;
+    margin: 0;
 }
 
-/* Estilos del Pie de Página */
+
 footer p {
     text-align: center;
     margin: 0;
 }
 
-/* Media Query para Pantallas Grandes (Escritorio, Tablet grande) */
-@media (min-width: 768px) { /* Ajustar el punto de quiebre según sea necesario */
-    /* Navegación del Encabezado (Escritorio) */
+
+@media (min-width: 768px) { 
+    
     .title-menu nav {
-        flex-wrap: nowrap; /* Evita que los elementos se envuelvan */
-        justify-content: space-between; /* Título a la izquierda, menú a la derecha */
+        flex-wrap: nowrap; 
+        justify-content: space-between; 
     }
 
-    /* Ocultar el menú de hamburguesa en escritorio */
     .hamburger-menu {
         display: none;
     }
 
-    /* Mostrar los enlaces de navegación normalmente en escritorio */
-    .navigation-links { /* Usando .navigation-links */
-        display: flex; /* Muestra el menú */
-        position: static; /* Elimina el posicionamiento absoluto */
-        flex-direction: row; /* Enlaces en una fila */
-        background-color: transparent; /* Fondo transparente */
-        box-shadow: none; /* Sin sombra */
-        width: auto; /* Toma el ancho natural */
+    
+    .navigation-links { 
+        display: flex;
+        position: static; 
+        flex-direction: row; 
+        background-color: transparent; 
+        box-shadow: none; 
+        width: auto; 
     }
 
     .navigation-links li {
-        border-bottom: none; /* Elimina el borde entre elementos */
+        border-bottom: none; 
         padding: 0;
     }
 
     .navigation-links li a {
-        padding: 10px 15px; /* Espaciado entre los elementos del menú */
+        padding: 10px 15px; 
     }
 
-    /* Cuadrícula de Galería (Escritorio: 3 Columnas) */
+   
     .temples {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual ancho */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
