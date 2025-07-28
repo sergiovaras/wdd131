@@ -139,11 +139,12 @@ document.addEventListener('DOMContentLoaded', () => {
         areaP.innerHTML = `<span>Area:</span> ${temple.area.toLocaleString()} pies²`; 
 
        
-        figure.appendChild(img);
+        
         figure.appendChild(figcaption);
         figure.appendChild(locationP);
         figure.appendChild(dedicatedP);
         figure.appendChild(areaP);
+        figure.appendChild(img);
 
         return figure;
     }
