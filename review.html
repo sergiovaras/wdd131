@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 | Review Confirmed</title>
+    <meta name="author" content="Sergio Varas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header, footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 1rem;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .counter-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #d1d1d1;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .counter-container h2 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .review-count {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        footer {
+            margin-top: auto;
+        }
+        footer p {
+            margin: 0.25rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Review Submitted!</h1>
+    </header>
+    <main>
+        <p>Thank you for your feedback. We appreciate you taking the time to review our product.</p>
+        <div class="counter-container">
+            <h2>Total Reviews Submitted:</h2>
+            <p id="reviewCounter" class="review-count">0</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; <span id="currentyear"></span> 💥Sergio D. Varas💥 - Buenos Aires Argentina</p>
+        <p><span id="lastModified"></span></p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const counterElement = document.getElementById('reviewCounter');
+            let reviewCount = localStorage.getItem('reviewCount');
+
+           
+            if (!reviewCount) {
+                reviewCount = 0;
+            } else {
+                
+                reviewCount = parseInt(reviewCount, 10);
+            }
+
+            
+            reviewCount++;
+            localStorage.setItem('reviewCount', reviewCount);
+            
+            
+            if (counterElement) {
+                counterElement.textContent = reviewCount;
+            }
+
+            
+            const yearSpan = document.getElementById('currentyear');
+            const lastModifiedSpan = document.getElementById('lastModified');
+            const today = new Date();
+            if (yearSpan) {
+                yearSpan.textContent = today.getFullYear();
+            }
+            if (lastModifiedSpan) {
+                lastModifiedSpan.textContent = `Last Modified: ${document.lastModified}`;
+            }
+        });
+    </script>
+</body>
+</html>
