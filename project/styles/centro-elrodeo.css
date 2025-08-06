@@ -1,0 +1,148 @@
+/* Variables para el esquema de colores */
+        :root {
+            --color-tierra: #8B4513;
+            --color-beige: #D2B48C;
+            --color-gris-oscuro: #4A4A4A;
+            --color-crema: #F8F4E1;
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--color-gris-oscuro);
+            background-color: var(--color-crema);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos de tipografía */
+        h1, h2, h3 {
+            font-family: 'Palatino Linotype', 'Georgia', serif;
+            color: var(--color-tierra);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        p { line-height: 1.6; }
+         .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header (Encabezado) */
+        header {
+            background-color: var(--color-beige);
+            color: var(--color-tierra);
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--color-tierra);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-gris-oscuro);
+            font-weight: bold;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        nav a:hover {
+            color: var(--color-tierra);
+            background-color: var(--color-crema);
+        }
+        .intro-cards-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2em;
+    margin-bottom: 2.5rem;
+    border-bottom: 2px solid #3498db;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; /* Para centrar el borde inferior */
+    width: fit-content;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo */
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch; /* Asegura que las tarjetas tengan la misma altura */
+}
+
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsionar */
+    display: block;
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    font-size: 1.8em;
+    color: #3498db;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.card-content p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.card-button {
+    display: inline-block;
+    background-color: #28a745; /* Verde vibrante */
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    align-self: center; /* Centra el botón */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
